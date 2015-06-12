@@ -68,8 +68,8 @@ describe('chrome.runtime', function () {
   });
 
   describe('reload', function () {
-    it('should be a spy', function () {
-      hmt.assert.equal(api.reload.toString(), 'spy');
+    it('should be a stub', function () {
+      hmt.assert.equal(api.reload.toString(), 'stub');
     });
   });
 });

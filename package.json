@@ -1,35 +1,53 @@
 {
-  "name": "chrome-mock",
-  "version": "0.0.9",
-  "author": "Steven Foote & Seth McLaughlin",
-  "license": "MIT",
-  "scripts": {
-    "test": "./node_modules/.bin/grunt"
+  "name": "chrome-stub",
+  "version": "1.0.0",
+  "description": "Easily stub out chrome API calls for great test coverage",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gcochard/chrome-stub.git"
+  },
+  "keywords": [
+    "chrome",
+    "API",
+    "stub"
+  ],
+  "author": "Greg Cochard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gcochard/chrome-stub/issues"
+  },
+  "homepage": "https://github.com/gcochard/chrome-stub",
   "dependencies": {
     "require-dir": "^0.1.0",
-    "sinon": "^1.10.3",
-    "rfile": "~1.0.0"
+    "sinon": "^1.15.3",
+    "rfile": "^1.0.0"
   },
   "devDependencies": {
-    "sinon": "~1.10.2",
+    "coveralls": "^2.11.2",
+    "ejs": "^1.0.0",
+    "eslint": "^0.22.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-eslint": "^0.5.0",
-    "grunt-jsdoc": "^0.5.4",
-    "grunt-mocha-istanbul": "^1.4.1",
+    "grunt-jsdoc": "^0.5.8",
+    "grunt-mocha-istanbul": "^1.5.0",
     "grunt-mocha-test": "^0.10.2",
-    "lodash": "^2.4.1",
-    "underscore.string": "^2.3.3",
-    "mocha": "~1.18.2",
-    "coveralls": "~2.10.0",
-    "mocha-lcov-reporter": "0.0.1",
-    "help-me-test": "~0.0.1",
-    "grunt-release": "~0.7.0",
-    "grunt-browserify": "~2.1.4",
-    "load-grunt-tasks": "~0.6.0",
-    "ejs": "~1.0.0"
+    "help-me-test": "0.0.3",
+    "istanbul": "^0.3.15",
+    "load-grunt-tasks": "^0.6.0",
+    "lodash": "^2.4.2",
+    "mocha": "^2.2.5",
+    "mocha-lcov-reporter": "0.0.2",
+    "sinon": "^1.10.3",
+    "underscore.string": "^2.4.0"
   }
 }
