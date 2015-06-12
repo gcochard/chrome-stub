@@ -47,3 +47,7 @@ getFirstTab(function(tab){
   // your code's callback is called with the value provided to yields()
 });
 ```
+
+-------------------
+
+Originally forked from [sethmcl/chrome-mock](https://github.com/sethmcl/chrome-mock)
