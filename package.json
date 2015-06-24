@@ -1,6 +1,6 @@
 {
   "name": "chrome-stub",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Easily stub out chrome API calls for great test coverage",
   "main": "index.js",
   "directories": {
