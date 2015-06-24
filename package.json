@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/gcochard/chrome-stub",
   "dependencies": {
+    "lodash": "^2.4.2",
     "require-dir": "^0.1.0",
     "sinon": "^1.15.3",
     "rfile": "^1.0.0"
@@ -44,7 +45,6 @@
     "help-me-test": "0.0.3",
     "istanbul": "^0.3.15",
     "load-grunt-tasks": "^0.6.0",
-    "lodash": "^2.4.2",
     "mocha": "^2.2.5",
     "mocha-lcov-reporter": "0.0.2",
     "sinon": "^1.10.3",
