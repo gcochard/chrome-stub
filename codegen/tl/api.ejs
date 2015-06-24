@@ -99,17 +99,7 @@ function <%= namespaceCap %>(chrome) {
    * @returns {<%= fn.returns.type %>} <%- limitStr(fn.returns.description, 80) %>
    * <% } %>
    */
-  this.<%= fn.name %> = sinon.spy(function (<%= fn.parameters.map(function (param) { return param.name; }).join(', ') %>) {
-    <%
-      var cbParam = getCallbackParam(fn.parameters);
-
-      if (getCallbackParam(fn.parameters)) {
-    %>
-    if (typeof <%= cbParam %> === 'function') {
-      <%= cbParam %>();
-    }
-    <% } %>
-  });
+  this.<%= fn.name %> = sinon.stub();
 
   <%
     });}
