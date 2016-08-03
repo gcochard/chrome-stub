@@ -8,6 +8,8 @@ var apiMetaSrc  = rfile('./json/' + apiName + '.json');
 var apiTemplate = rfile('./tl/api.ejs');
 var apiMeta     = JSON.parse(helpers.cleanJSON(apiMetaSrc))[0];
 
+// api JSON files are pulled from https://chromium.googlesource.com/chromium/chromium/+/7bd44be3b36f52ef891865dcfbdc1e8c4dddf70a/chrome/common/extensions/api
+
 apiMeta.namespaceCap = helpers.capitalize(apiMeta.namespace);
 
 var out      = ejs.render(apiTemplate, apiMeta);
