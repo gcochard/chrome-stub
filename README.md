@@ -25,9 +25,27 @@ If you pass a string that does not exist, you will receive a blank string back.
 If you want to load a different messages.json file, for example the one you use in your chrome extension then use 
 the method below in your test file.
 
-```js
-chrome.setMessagesPath(path)
+*_locales/ru/messages.json*
+
+```json
+{
+	"test": {
+		"message": "Тест"
+	}
+}
 ```
+
+*test.js*
+
+```js
+let path = require('path');
+
+let config = path.resolve(process.cwd(), '_locales/ru/messages.json');
+
+chrome.loadDefaults(config);
+chrome.i18n.getMessage('test'); // Тест
+```
+
 
 # All other APIs
 
