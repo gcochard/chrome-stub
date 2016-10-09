@@ -14,8 +14,8 @@ describe('chrome.I18n', function () {
 
     describe('with callback', function () {
       it('should provide spy functionality', function () {
-        var test = api.getMessage('test');
-        hmt.assert(test === 'test');
+        var test = api.getMessage('test', ['one']);
+        hmt.assert.equal(test, 'test one');
       });
     });
   });
@@ -24,7 +24,7 @@ describe('chrome.I18n', function () {
   describe('_locales', function(){
       it('should provide spy functionality', function () {
         var test = api._locales;
-        hmt.assert(test.test.message === 'test', 'make sure messages.json has test');
+        hmt.assert.equal(test.test.message, 'test $1', 'make sure messages.json has test');
       });
   });
 
