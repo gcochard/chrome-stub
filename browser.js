@@ -40,7 +40,7 @@ function Event() {
 }
 
 /**
- * @property {array}
+ * @property {Array}
  */
 Event.prototype.listeners = null;
 
@@ -54,7 +54,7 @@ Event.prototype.addListener = function (fn) {
 
 /**
  * Trigger event
- * @param {...object} arg
+ * @param {...Object} arg
  */
 Event.prototype.trigger = function () {
   var args = arguments;
@@ -75,7 +75,7 @@ module.exports = ContextMenus;
  * menu. You can choose what types of objects your context menu additions apply to,
  * such as images, hyperlinks, and pages.
  * @constructor
- * @param {object} chrome
+ * @param {Object} chrome
  */
 function ContextMenus(chrome) {
   this.chrome = chrome;
@@ -93,7 +93,7 @@ function ContextMenus(chrome) {
    * may not find out until the creation callback fires (the details will be in chro
    * me.runtime.lastError).
    *
-   * @param {object} createProperties
+   * @param {Object} createProperties
    * @param {function} callback Called when the item has been created in the browser. If there were any probl...
    * @returns {undefined} The ID of the newly created item.
    */
@@ -109,7 +109,7 @@ function ContextMenus(chrome) {
    * Updates a previously created context menu item.
    *
    * @param {undefined} id The ID of the item to update.
-   * @param {object} updateProperties The properties to update. Accepts the same values as the create function.
+   * @param {Object} updateProperties The properties to update. Accepts the same values as the create function.
    * @param {function} callback Called when the context menu has been updated.
    */
   this.update = sinon.spy(function (id, updateProperties, callback) {
@@ -176,7 +176,7 @@ module.exports = i18n;
 /**
  * Use the <code>chrome.i8n</code> to implement internationalization across your whole app or extension.
  * @constructor
- * @param {object} chrome
+ * @param {Object} chrome
  */
 function i18n (chrome) {
     this.chrome = chrome;
@@ -213,8 +213,8 @@ function i18n (chrome) {
      * is wrong — for example, messageName is not a string or the substitutions array
      * has more than 9 elements — this method returns undefined.
      *
-     * @param {integer} messageName - The name of the message, as specified in the messages.json file.
-     * @param {object} substitutions - Up to 9 substitution strings, if the message requires any.
+     * @param {number} messageName - The name of the message, as specified in the messages.json file.
+     * @param {Object} substitutions - Up to 9 substitution strings, if the message requires any.
      * @returns {string}
      */
     this.getMessage = sinon.spy(function (messageName) {
@@ -233,8 +233,8 @@ function i18n (chrome) {
 //     * Gets the browser UI language of the browser. This is different
 //     * from i18n.getAcceptLanguages which returns the preferred user languages.
 //     *
-//     * @param {integer} tabId
-//     * @param {object} connectInfo
+//     * @param {number} tabId
+//     * @param {Object} connectInfo
 //     * @returns {undefined} A port that can be used to communicate with the content scripts running in th...
 //     */
 //    this.getUILanguage = sinon.spy(function (tabId, connectInfo){
@@ -256,14 +256,14 @@ module.exports = Runtime;
  * lifecycle. You can also use this API to convert the relative path of URLs to fully-qualified
  * URLs.
  * @constructor
- * @param {object} chrome
+ * @param {Object} chrome
  */
 function Runtime(chrome) {
   this.chrome = chrome;
 
   /**
    * This will be defined during an API method callback if there was an error
-   * @property {object}
+   * @property {Object}
    */
   this.lastError = null;
 
@@ -294,7 +294,7 @@ function Runtime(chrome) {
    * Returns details about the app or extension from the manifest. The object returned
    * is a serialization of the full <a href="manifest.html">manifest file</a>.
    *
-   * @returns {object} The manifest details.
+   * @returns {Object} The manifest details.
    */
   this.getManifest = sinon.spy(function () {
 
@@ -360,7 +360,7 @@ function Runtime(chrome) {
    * ons/tabs#method-connect">tabs.connect</a>.
    *
    * @param {string} extensionId The ID of the extension or app to connect to. If omitted, a connection will b...
-   * @param {object} connectInfo
+   * @param {Object} connectInfo
    * @returns {undefined} Port through which messages can be sent and received. The port's $(ref:runtim...
    */
   this.connect = sinon.spy(function () {
@@ -388,7 +388,7 @@ function Runtime(chrome) {
    *
    * @param {string} extensionId The ID of the extension/app to send the message to. If omitted, the message w...
    * @param {any} message
-   * @param {object} options
+   * @param {Object} options
    * @param {function} responseCallback
    */
   this.sendMessage = sinon.spy(function (extensionId, message, options, responseCallback) {
@@ -403,7 +403,7 @@ function Runtime(chrome) {
    * Send a single message to a native application.
    *
    * @param {string} application The name of the native messaging host.
-   * @param {object} message The message that will be passed to the native messaging host.
+   * @param {Object} message The message that will be passed to the native messaging host.
    * @param {function} responseCallback
    */
   this.sendNativeMessage = sinon.spy(function (application, message, responseCallback) {
@@ -528,7 +528,7 @@ module.exports = Tabs;
  * Use the <code>chrome.tabs</code> API to interact with the browser's tab system. You
  * can use this API to create, modify, and rearrange tabs in the browser.
  * @constructor
- * @param {object} chrome
+ * @param {Object} chrome
  */
 function Tabs(chrome) {
   this.chrome = chrome;
@@ -537,7 +537,7 @@ function Tabs(chrome) {
   /**
    * Retrieves details about the specified tab.
    *
-   * @param {integer} tabId
+   * @param {number} tabId
    * @param {function} callback
    */
   this.get = sinon.spy(function (tabId, callback) {
@@ -568,8 +568,8 @@ function Tabs(chrome) {
    * extension. For more details, see <a href='messaging'>Content Script Messaging</
    * a>.
    *
-   * @param {integer} tabId
-   * @param {object} connectInfo
+   * @param {number} tabId
+   * @param {Object} connectInfo
    * @returns {undefined} A port that can be used to communicate with the content scripts running in th...
    */
   this.connect = sinon.spy(function (tabId) {
@@ -582,7 +582,7 @@ function Tabs(chrome) {
    * is fired in each content script running in the specified tab for the current ex
    * tension.
    *
-   * @param {integer} tabId
+   * @param {number} tabId
    * @param {any} request
    * @param {function} responseCallback
    */
@@ -600,7 +600,7 @@ function Tabs(chrome) {
    * is fired in each content script running in the specified tab for the current ex
    * tension.
    *
-   * @param {integer} tabId
+   * @param {number} tabId
    * @param {any} message
    * @param {function} responseCallback
    */
@@ -615,7 +615,7 @@ function Tabs(chrome) {
   /**
    * Gets the tab that is selected in the specified window.
    *
-   * @param {integer} windowId Defaults to the <a href='windows#current-window'>current window</a>.
+   * @param {number} windowId Defaults to the <a href='windows#current-window'>current window</a>.
    * @param {function} callback
    */
   this.getSelected = sinon.spy(function (windowId, callback) {
@@ -629,7 +629,7 @@ function Tabs(chrome) {
   /**
    * Gets details about all tabs in the specified window.
    *
-   * @param {integer} windowId Defaults to the <a href='windows#current-window'>current window</a>.
+   * @param {number} windowId Defaults to the <a href='windows#current-window'>current window</a>.
    * @param {function} callback
    */
   this.getAllInWindow = sinon.spy(function (windowId, callback) {
@@ -643,7 +643,7 @@ function Tabs(chrome) {
   /**
    * Creates a new tab.
    *
-   * @param {object} createProperties
+   * @param {Object} createProperties
    * @param {function} callback
    */
   this.create = sinon.spy(function (createProperties, callback) {
@@ -657,7 +657,7 @@ function Tabs(chrome) {
   /**
    * Duplicates a tab.
    *
-   * @param {integer} tabId The ID of the tab which is to be duplicated.
+   * @param {number} tabId The ID of the tab which is to be duplicated.
    * @param {function} callback
    */
   this.duplicate = sinon.spy(function (tabId, callback) {
@@ -672,7 +672,7 @@ function Tabs(chrome) {
    * Gets all tabs that have the specified properties, or all tabs if no properties are
    * specified.
    *
-   * @param {object} queryInfo
+   * @param {Object} queryInfo
    * @param {function} callback
    */
   this.query = sinon.spy(function (queryInfo, callback) {
@@ -686,7 +686,7 @@ function Tabs(chrome) {
   /**
    * Highlights the given tabs.
    *
-   * @param {object} highlightInfo
+   * @param {Object} highlightInfo
    * @param {function} callback
    */
   this.highlight = sinon.spy(function (highlightInfo, callback) {
@@ -701,8 +701,8 @@ function Tabs(chrome) {
    * Modifies the properties of a tab. Properties that are not specified in <var>updateProperties</var>
    * are not modified.
    *
-   * @param {integer} tabId Defaults to the selected tab of the <a href='windows#current-window'>current ...
-   * @param {object} updateProperties
+   * @param {number} tabId Defaults to the selected tab of the <a href='windows#current-window'>current ...
+   * @param {Object} updateProperties
    * @param {function} callback
    */
   this.update = sinon.spy(function (tabId, updateProperties, callback) {
@@ -719,7 +719,7 @@ function Tabs(chrome) {
    * ws.
    *
    * @param {undefined} tabIds The tab or list of tabs to move.
-   * @param {object} moveProperties
+   * @param {Object} moveProperties
    * @param {function} callback
    */
   this.move = sinon.spy(function (tabIds, moveProperties, callback) {
@@ -733,8 +733,8 @@ function Tabs(chrome) {
   /**
    * Reload a tab.
    *
-   * @param {integer} tabId The ID of the tab to reload; defaults to the selected tab of the current window.
-   * @param {object} reloadProperties
+   * @param {number} tabId The ID of the tab to reload; defaults to the selected tab of the current window.
+   * @param {Object} reloadProperties
    * @param {function} callback
    */
   this.reload = sinon.spy(function (tabId, reloadProperties, callback) {
@@ -762,7 +762,7 @@ function Tabs(chrome) {
   /**
    * Detects the primary language of the content in a tab.
    *
-   * @param {integer} tabId Defaults to the active tab of the <a href='windows#current-window'>current wi...
+   * @param {number} tabId Defaults to the active tab of the <a href='windows#current-window'>current wi...
    * @param {function} callback
    */
   this.detectLanguage = sinon.spy(function (tabId, callback) {
@@ -778,7 +778,7 @@ function Tabs(chrome) {
    * must have <a href='declare_permissions'>&lt;all_urls&gt;</a> permission to use this
    * method.
    *
-   * @param {integer} windowId The target window. Defaults to the <a href='windows#current-window'>current w...
+   * @param {number} windowId The target window. Defaults to the <a href='windows#current-window'>current w...
    * @param {undefined} options
    * @param {function} callback
    */
@@ -794,7 +794,7 @@ function Tabs(chrome) {
    * Injects JavaScript code into a page. For details, see the <a href='content_scripts#pi'>programmatic
    * injection</a> section of the content scripts doc.
    *
-   * @param {integer} tabId The ID of the tab in which to run the script; defaults to the active tab of t...
+   * @param {number} tabId The ID of the tab in which to run the script; defaults to the active tab of t...
    * @param {undefined} details Details of the script to run.
    * @param {function} callback Called after all the JavaScript has been executed.
    */
@@ -810,7 +810,7 @@ function Tabs(chrome) {
    * Injects CSS into a page. For details, see the <a href='content_scripts#pi'>programmatic
    * injection</a> section of the content scripts doc.
    *
-   * @param {integer} tabId The ID of the tab in which to insert the CSS; defaults to the active tab of t...
+   * @param {number} tabId The ID of the tab in which to insert the CSS; defaults to the active tab of t...
    * @param {undefined} details Details of the CSS text to insert.
    * @param {function} callback Called when all the CSS has been inserted.
    */
@@ -825,7 +825,7 @@ function Tabs(chrome) {
   /**
    * Zooms a specified tab.
    *
-   * @param {integer} tabId The ID of the tab to zoom; defaults to the active tab of the current window.
+   * @param {number} tabId The ID of the tab to zoom; defaults to the active tab of the current window.
    * @param {number} zoomFactor The new zoom factor.
    * @param {function} callback Called after the zoom factor has been changed.
    */
@@ -840,7 +840,7 @@ function Tabs(chrome) {
   /**
    * Gets the current zoom factor of a specified tab.
    *
-   * @param {integer} tabId The ID of the tab to get the current zoom factor from; defaults to the active...
+   * @param {number} tabId The ID of the tab to get the current zoom factor from; defaults to the active...
    * @param {function} callback Called with the tab's current zoom factor after it has been fetched.
    */
   this.getZoom = sinon.spy(function (tabId, callback) {
@@ -855,7 +855,7 @@ function Tabs(chrome) {
    * Sets the zoom settings for a specified tab, which define how zoom changes are handled.
    * These settings are reset to defaults upon navigating the tab.
    *
-   * @param {integer} tabId The ID of the tab to change the zoom settings for; defaults to the active tab...
+   * @param {number} tabId The ID of the tab to change the zoom settings for; defaults to the active tab...
    * @param {undefined} zoomSettings Defines how zoom changes are handled and at what scope.
    * @param {function} callback Called after the zoom settings have been changed.
    */
@@ -870,7 +870,7 @@ function Tabs(chrome) {
   /**
    * Gets the current zoom settings of a specified tab.
    *
-   * @param {integer} tabId The ID of the tab to get the current zoom settings from; defaults to the acti...
+   * @param {number} tabId The ID of the tab to get the current zoom settings from; defaults to the acti...
    * @param {function} callback Called with the tab's current zoom settings.
    */
   this.getZoomSettings = sinon.spy(function (tabId, callback) {
