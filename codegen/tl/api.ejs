@@ -58,9 +58,12 @@ module.exports = <%= namespaceCap %>;
 %>
 
 /**
- * <% chunkString(description, 80).forEach(function (line) { %>
+ * <% if (typeof description !== 'undefined'){
+   chunkString(description, 80).forEach(function (line) { %>
  * <%- line %>
- * <% }); %>
+ * <% });
+   }
+   %>
  * @constructor
  * @param {object} chrome
  */
